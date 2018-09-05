@@ -9,6 +9,8 @@
 import UIKit
 
 class TasksTableViewController: UITableViewController {
+    
+    var tasks: [Task] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,20 +36,34 @@ class TasksTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return tasks.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TaskCell", for: indexPath)
 
-        cell.textLabel?.text = "Hello"
-        cell.detailTextLabel?.text = "Potato"
+        cell.textLabel?.text = tasks[indexPath.row].name
+        cell.detailTextLabel?.text = tasks[indexPath.row].addedByUser
 
         return cell
     }
     
-
+    @IBAction func addTask(_ sender: Any) {
+        let alert = UIAlertController(title: "Add task", message: "", preferredStyle: .alert)
+        alert.addTextField()
+        let confirmAction = UIAlertAction(title: "Add", style: .default) { (_) in
+            let textField = alert.textFields![0]
+            let task = Task(name: textField.text ?? "", completed: false, addedByUser: "kopitiamuncle@icloud.com")
+            self.tasks.append(task)
+            self.tableView.reloadData()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

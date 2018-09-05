@@ -138,7 +138,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Tasks" id="fbu-jy-8D3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="z6i-J4-QFg"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="z6i-J4-QFg">
+                            <connections>
+                                <action selector="addTask:" destination="9BL-tX-19D" id="Y4T-u0-5Ay"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9IK-eD-HVQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
