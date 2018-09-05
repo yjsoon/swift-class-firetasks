@@ -75,6 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="108" y="134"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="V4b-fJ-zP0">
@@ -190,14 +191,18 @@
             </objects>
             <point key="canvasLocation" x="2412" y="569"/>
         </scene>
-        <!--Item-->
+        <!--Online-->
         <scene sceneID="xqS-Mi-gVQ">
             <objects>
                 <navigationController id="Mgn-Qd-VBu" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="HBQ-Wf-inO"/>
+                    <tabBarItem key="tabBarItem" title="Online" image="people" id="HBQ-Wf-inO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="vti-x6-vFQ">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.0026741256569999998" green="0.54812499999999997" blue="0.19022609870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="xVe-2C-U0I" kind="relationship" relationship="rootViewController" id="3pY-ir-gme"/>
@@ -207,15 +212,18 @@
             </objects>
             <point key="canvasLocation" x="1630" y="569"/>
         </scene>
-        <!--Item-->
+        <!--Tasks-->
         <scene sceneID="Jma-6X-ZhV">
             <objects>
                 <navigationController id="HbJ-3D-Ao4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ImH-xk-fa8"/>
+                    <tabBarItem key="tabBarItem" title="Tasks" image="checkmark" id="ImH-xk-fa8"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="DUb-qA-W2U">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.0026741256569999998" green="0.54812499999999997" blue="0.19022609870000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="9BL-tX-19D" kind="relationship" relationship="rootViewController" id="FxG-3s-Roq"/>
@@ -226,5 +234,9 @@
             <point key="canvasLocation" x="1637" y="-157"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="checkmark" width="28" height="28"/>
+        <image name="people" width="28" height="28"/>
+    </resources>
     <color key="tintColor" red="0.0026741256566342043" green="0.54812499999999997" blue="0.19022609874377613" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
