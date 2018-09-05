@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		72C6A7D65411BBC7CBA718AB /* Pods_TasksOnFire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C791BAD4B1EBDDD967A83761 /* Pods_TasksOnFire.framework */; };
 		AF21A22E213FAD41006FB217 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF21A22D213FAD41006FB217 /* AppDelegate.swift */; };
 		AF21A230213FAD41006FB217 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF21A22F213FAD41006FB217 /* ViewController.swift */; };
 		AF21A233213FAD41006FB217 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF21A231213FAD41006FB217 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C2334A73826DFBDDB3D7F07 /* Pods-TasksOnFire.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TasksOnFire.release.xcconfig"; path = "Pods/Target Support Files/Pods-TasksOnFire/Pods-TasksOnFire.release.xcconfig"; sourceTree = "<group>"; };
 		AF21A22A213FAD41006FB217 /* TasksOnFire.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasksOnFire.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF21A22D213FAD41006FB217 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF21A22F213FAD41006FB217 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		AF21A234213FAD42006FB217 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF21A237213FAD42006FB217 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF21A239213FAD42006FB217 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C01F0402A8D3B20C562520EE /* Pods-TasksOnFire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TasksOnFire.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TasksOnFire/Pods-TasksOnFire.debug.xcconfig"; sourceTree = "<group>"; };
+		C791BAD4B1EBDDD967A83761 /* Pods_TasksOnFire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TasksOnFire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72C6A7D65411BBC7CBA718AB /* Pods_TasksOnFire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		03D91A7060B01F6246B9743E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C791BAD4B1EBDDD967A83761 /* Pods_TasksOnFire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A68EA9DC03524D2AF2553F4C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C01F0402A8D3B20C562520EE /* Pods-TasksOnFire.debug.xcconfig */,
+				1C2334A73826DFBDDB3D7F07 /* Pods-TasksOnFire.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AF21A221213FAD41006FB217 = {
 			isa = PBXGroup;
 			children = (
 				AF21A22C213FAD41006FB217 /* TasksOnFire */,
 				AF21A22B213FAD41006FB217 /* Products */,
+				A68EA9DC03524D2AF2553F4C /* Pods */,
+				03D91A7060B01F6246B9743E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AF21A23C213FAD42006FB217 /* Build configuration list for PBXNativeTarget "TasksOnFire" */;
 			buildPhases = (
+				B975CE6BD59BFE47D57AC6FE /* [CP] Check Pods Manifest.lock */,
 				AF21A226213FAD41006FB217 /* Sources */,
 				AF21A227213FAD41006FB217 /* Frameworks */,
 				AF21A228213FAD41006FB217 /* Resources */,
+				79AB301F4115BD6F21FE8D84 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		79AB301F4115BD6F21FE8D84 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TasksOnFire/Pods-TasksOnFire-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TasksOnFire/Pods-TasksOnFire-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B975CE6BD59BFE47D57AC6FE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TasksOnFire-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AF21A226213FAD41006FB217 /* Sources */ = {
@@ -278,15 +347,13 @@
 		};
 		AF21A23D213FAD42006FB217 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C01F0402A8D3B20C562520EE /* Pods-TasksOnFire.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PQ6U5ESLN2;
 				INFOPLIST_FILE = TasksOnFire/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tinkertanker.TasksOnFire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -296,15 +363,13 @@
 		};
 		AF21A23E213FAD42006FB217 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1C2334A73826DFBDDB3D7F07 /* Pods-TasksOnFire.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PQ6U5ESLN2;
 				INFOPLIST_FILE = TasksOnFire/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tinkertanker.TasksOnFire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
