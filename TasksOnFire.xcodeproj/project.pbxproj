@@ -17,6 +17,7 @@
 		AF21A242213FBF91006FB217 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF21A241213FBF91006FB217 /* Task.swift */; };
 		AF21A244213FBFBA006FB217 /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF21A243213FBFBA006FB217 /* TasksTableViewController.swift */; };
 		AF21A246213FBFF3006FB217 /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF21A245213FBFF3006FB217 /* UsersTableViewController.swift */; };
+		AF21A248213FC544006FB217 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF21A247213FC543006FB217 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		AF21A241213FBF91006FB217 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		AF21A243213FBFBA006FB217 /* TasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		AF21A245213FBFF3006FB217 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		AF21A247213FC543006FB217 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C01F0402A8D3B20C562520EE /* Pods-TasksOnFire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TasksOnFire.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TasksOnFire/Pods-TasksOnFire.debug.xcconfig"; sourceTree = "<group>"; };
 		C791BAD4B1EBDDD967A83761 /* Pods_TasksOnFire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TasksOnFire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,6 +88,7 @@
 		AF21A22C213FAD41006FB217 /* TasksOnFire */ = {
 			isa = PBXGroup;
 			children = (
+				AF21A247213FC543006FB217 /* GoogleService-Info.plist */,
 				AF21A22D213FAD41006FB217 /* AppDelegate.swift */,
 				AF21A22F213FAD41006FB217 /* ViewController.swift */,
 				AF21A231213FAD41006FB217 /* Main.storyboard */,
@@ -162,6 +165,7 @@
 			files = (
 				AF21A238213FAD42006FB217 /* LaunchScreen.storyboard in Resources */,
 				AF21A235213FAD42006FB217 /* Assets.xcassets in Resources */,
+				AF21A248213FC544006FB217 /* GoogleService-Info.plist in Resources */,
 				AF21A233213FAD41006FB217 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,12 +180,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TasksOnFire/Pods-TasksOnFire-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -369,10 +375,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PQ6U5ESLN2;
 				INFOPLIST_FILE = TasksOnFire/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tinkertanker.TasksOnFire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -388,10 +391,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PQ6U5ESLN2;
 				INFOPLIST_FILE = TasksOnFire/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.tinkertanker.TasksOnFire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

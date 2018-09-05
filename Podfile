@@ -7,6 +7,7 @@ target 'TasksOnFire' do
 
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
 
   # Pods for TasksOnFire
 
