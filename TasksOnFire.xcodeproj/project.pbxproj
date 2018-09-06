@@ -34,6 +34,7 @@
 		AF21A243213FBFBA006FB217 /* TasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		AF21A245213FBFF3006FB217 /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		AF21A247213FC543006FB217 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AF67AAB72140C9B200DDA0EB /* TasksOnFire.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TasksOnFire.entitlements; sourceTree = "<group>"; };
 		C01F0402A8D3B20C562520EE /* Pods-TasksOnFire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TasksOnFire.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TasksOnFire/Pods-TasksOnFire.debug.xcconfig"; sourceTree = "<group>"; };
 		C791BAD4B1EBDDD967A83761 /* Pods_TasksOnFire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TasksOnFire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -88,6 +89,7 @@
 		AF21A22C213FAD41006FB217 /* TasksOnFire */ = {
 			isa = PBXGroup;
 			children = (
+				AF67AAB72140C9B200DDA0EB /* TasksOnFire.entitlements */,
 				AF21A247213FC543006FB217 /* GoogleService-Info.plist */,
 				AF21A22D213FAD41006FB217 /* AppDelegate.swift */,
 				AF21A22F213FAD41006FB217 /* ViewController.swift */,
@@ -137,6 +139,11 @@
 				TargetAttributes = {
 					AF21A229213FAD41006FB217 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -372,10 +379,14 @@
 			baseConfigurationReference = C01F0402A8D3B20C562520EE /* Pods-TasksOnFire.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TasksOnFire/TasksOnFire.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PQ6U5ESLN2;
 				INFOPLIST_FILE = TasksOnFire/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tinkertanker.TasksOnFire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -388,10 +399,14 @@
 			baseConfigurationReference = 1C2334A73826DFBDDB3D7F07 /* Pods-TasksOnFire.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TasksOnFire/TasksOnFire.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PQ6U5ESLN2;
 				INFOPLIST_FILE = TasksOnFire/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tinkertanker.TasksOnFire;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
