@@ -7,19 +7,37 @@
 //
 
 import UIKit
+import Firebase
 
 class TasksTableViewController: UITableViewController {
     
     var tasks: [Task] = []
+    let db = Database.database().reference(withPath: "tasks")
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        db.observe(.value) { (snapshot) in
+            
+            var newTasks: [Task] = []
+            
+            print(snapshot)
+            // Now to update newTasks with all the children of snapshot
+            
+            for childSnapshot in snapshot.children {
+                if let childSnapshot = childSnapshot as? DataSnapshot,
+                let taskDict = childSnapshot.value as? [String: AnyObject],
+                let name = taskDict["name"] as? String,
+                let completed = taskDict["completed"] as? Bool,
+                let addedByUser = taskDict["addedByUser"] as? String {
+                    let newTask = Task(name: name, completed: completed, addedByUser: addedByUser)
+                    newTasks.append(newTask)
+                }
+                
+            }
+            
+            self.tasks = newTasks
+            self.tableView.reloadData()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,8 +73,10 @@ class TasksTableViewController: UITableViewController {
         let confirmAction = UIAlertAction(title: "Add", style: .default) { (_) in
             let textField = alert.textFields![0]
             let task = Task(name: textField.text ?? "", completed: false, addedByUser: "kopitiamuncle@icloud.com")
-            self.tasks.append(task)
-            self.tableView.reloadData()
+            
+            let taskRef = self.db.child(task.name)
+            taskRef.setValue(task.toDictionary())
+            
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alert.addAction(confirmAction)

@@ -12,6 +12,14 @@ struct Task {
     
     var name: String
     var completed: Bool
-    var addedByUser: String 
+    var addedByUser: String
+    
+    func toDictionary() -> Any {
+        return [
+            "name": name,
+            "completed": completed,
+            "addedByUser": addedByUser
+        ]
+    }
     
 }
