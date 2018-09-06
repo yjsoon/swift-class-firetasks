@@ -16,7 +16,7 @@ class TasksTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        db.observe(.value) { (snapshot) in
+        db.queryOrdered(byChild: "completed").observe(.value) { (snapshot) in
             
             var newTasks: [Task] = []
             
@@ -29,7 +29,7 @@ class TasksTableViewController: UITableViewController {
                 let name = taskDict["name"] as? String,
                 let completed = taskDict["completed"] as? Bool,
                 let addedByUser = taskDict["addedByUser"] as? String {
-                    let newTask = Task(name: name, completed: completed, addedByUser: addedByUser)
+                    let newTask = Task(name: name, completed: completed, addedByUser: addedByUser, ref: childSnapshot.ref)
                     newTasks.append(newTask)
                 }
                 
@@ -72,7 +72,7 @@ class TasksTableViewController: UITableViewController {
         alert.addTextField()
         let confirmAction = UIAlertAction(title: "Add", style: .default) { (_) in
             let textField = alert.textFields![0]
-            let task = Task(name: textField.text ?? "", completed: false, addedByUser: "kopitiamuncle@icloud.com")
+            let task = Task(name: textField.text ?? "", completed: false, addedByUser: "kopitiamuncle@icloud.com", ref: nil)
             
             let taskRef = self.db.child(task.name)
             taskRef.setValue(task.toDictionary())
@@ -84,6 +84,25 @@ class TasksTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let task = tasks[indexPath.row]
+        let completed = !task.completed
+        
+        task.ref?.updateChildValues(["completed" : completed])
+        if let cell = tableView.cellForRow(at: indexPath) {
+            if (completed) {
+                cell.tintColor = .black
+                cell.textLabel?.textColor = .gray
+                cell.detailTextLabel?.textColor = .gray
+                cell.accessoryType = .checkmark
+            } else {
+                cell.textLabel?.textColor = .black
+                cell.detailTextLabel?.textColor = .black
+                cell.accessoryType = .none
+            }
+        }
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -92,17 +111,14 @@ class TasksTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            tasks[indexPath.row].ref?.removeValue()
+        }
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

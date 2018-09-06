@@ -7,12 +7,14 @@
 //
 
 import Foundation
+import Firebase
 
 struct Task {
     
     var name: String
     var completed: Bool
     var addedByUser: String
+    var ref: DatabaseReference?
     
     func toDictionary() -> Any {
         return [
