@@ -16,6 +16,8 @@ class TasksTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
         db.queryOrdered(byChild: "completed").observe(.value) { (snapshot) in
             
             var newTasks: [Task] = []
@@ -37,6 +39,7 @@ class TasksTableViewController: UITableViewController {
             
             self.tasks = newTasks
             self.tableView.reloadData()
+            UIApplication.shared.isNetworkActivityIndicatorVisible = false
         }
     }
 
@@ -63,7 +66,18 @@ class TasksTableViewController: UITableViewController {
 
         cell.textLabel?.text = tasks[indexPath.row].name
         cell.detailTextLabel?.text = tasks[indexPath.row].addedByUser
-
+        
+        if (tasks[indexPath.row].completed) {
+            cell.tintColor = .black
+            cell.textLabel?.textColor = .gray
+            cell.detailTextLabel?.textColor = .gray
+            cell.accessoryType = .checkmark
+        } else {
+            cell.textLabel?.textColor = .black
+            cell.detailTextLabel?.textColor = .black
+            cell.accessoryType = .none
+        }
+    
         return cell
     }
     
@@ -87,20 +101,7 @@ class TasksTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let task = tasks[indexPath.row]
         let completed = !task.completed
-        
         task.ref?.updateChildValues(["completed" : completed])
-        if let cell = tableView.cellForRow(at: indexPath) {
-            if (completed) {
-                cell.tintColor = .black
-                cell.textLabel?.textColor = .gray
-                cell.detailTextLabel?.textColor = .gray
-                cell.accessoryType = .checkmark
-            } else {
-                cell.textLabel?.textColor = .black
-                cell.detailTextLabel?.textColor = .black
-                cell.accessoryType = .none
-            }
-        }
     }
     
     /*
